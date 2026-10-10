@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CREMBELLA | A Taste of Luxury</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Georgia, serif;
+        background: #faf6ef;
+        color: #38251d;
+    }
+
+    header {
+        background: #38251d;
+        color: #f7ead8;
+        padding: 25px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .logo {
+        font-size: 30px;
+        letter-spacing: 4px;
+    }
+
+    nav a {
+        color: #f7ead8;
+        text-decoration: none;
+        margin: 10px;
+        font-size: 14px;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #d5ad79;
+    }
+
+    .hero {
+        min-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+        background: linear-gradient(
+            135deg,
+            #faf6ef,
+            #edddc7,
+            #faf6ef
+        );
+        animation: fadeIn 1.5s ease;
+    }
+
+    .hero .small-title {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 8vw, 85px);
+        letter-spacing: 5px;
+        margin-bottom: 20px;
+        animation: slideUp 1.2s ease;
+    }
+
+    .hero p {
+        font-size: 18px;
+        line-height: 1.8;
+        max-width: 600px;
+        margin-bottom: 30px;
+    }
+
+    .button {
+        display: inline-block;
+        background: #38251d;
+        color: #fff8ed;
+        padding: 15px 30px;
+        text-decoration: none;
+        border: 1px solid #38251d;
+        transition: 0.3s;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .button:hover {
+        background: #b58a5a;
+        border-color: #b58a5a;
+        transform: translateY(-4px);
+    }
+
+    .section {
+        padding: 80px 8%;
+        text-align: center;
+    }
+
+    .section h2 {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        color: #806b5a;
+        margin-bottom: 40px;
+        line-height: 1.7;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .card {
+        background: #fffdf8;
+        padding: 30px 25px;
+        width: 240px;
+        border: 1px solid #eadcc9;
+        transition: transform 0.35s, box-shadow 0.35s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(56, 37, 29, 0.12);
+    }
+
+    .card .icon {
+        font-size: 42px;
+        margin-bottom: 18px;
+    }
+
+    .card h3 {
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #806b5a;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .price {
+        font-weight: bold;
+        color: #8a603b;
+    }
+
+    .dark-section {
+        background: #38251d;
+        color: #f7ead8;
+    }
+
+    .dark-section .subtitle {
+        color: #ddc8ad;
+    }
+
+    .dark-section .card {
+        background: #493328;
+        border-color: #6c5140;
+        color: #fff5e7;
+    }
+
+    .dark-section .card p {
+        color: #e1cbb5;
+    }
+
+    .dark-section .price {
+        color: #e8c08f;
+    }
+
+    .cart-box {
+        background: #fffdf8;
+        max-width: 500px;
+        margin: 35px auto 0;
+        padding: 30px;
+        border: 1px solid #eadcc9;
+    }
+
+    #cart-items {
+        margin: 20px 0;
+        line-height: 2;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 20px;
+        background: #241710;
+        color: #f7ead8;
+        line-height: 2;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 650px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 8px;
+        }
+
+        .section {
+            padding: 55px 15px;
+        }
+
+        .section h2 {
+            font-size: 30px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">CREMBELLA.</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#activities">Experiences</a>
+        <a href="#order">My Cart</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <p class="small-title">A Little Luxury in Every Moment</p>
+
+    <h1>Welcome to<br>CREMBELLA</h1>
+
+    <p>
+        Where artisan desserts meet unforgettable experiences.
+        Come for the flavours, stay for the memories.
+    </p>
+
+    <a href="#menu" class="button">DISCOVER OUR MENU</a>
+</section>
+
+<section class="section" id="menu">
+    <h2>Our Signature Menu</h2>
+
+    <p class="subtitle">
+        Thoughtfully chosen treats for your sweetest moments.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🍰</div>
+            <h3>Signature Cakes</h3>
+            <p>Delicate layers and delicious flavours.</p>
+            <p class="price">From ₹180</p>
+            <button class="button" onclick="addToCart('Signature Cakes', 180)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🥐</div>
+            <h3>French Pastries</h3>
+            <p>Golden, flaky and freshly inspired.</p>
+            <p class="price">From ₹100</p>
+            <button class="button" onclick="addToCart('French Pastries', 100)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🍕</div>
+            <h3>Gourmet Pizza</h3>
+            <p>A delicious favourite made for sharing.</p>
+            <p class="price">From ₹220</p>
+            <button class="button" onclick="addToCart('Gourmet Pizza', 220)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">☕</div>
+            <h3>Artisan Coffee</h3>
+            <p>Your perfect companion for every visit.</p>
+            <p class="price">From ₹120</p>
+            <button class="button" onclick="addToCart('Artisan Coffee', 120)">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section class="section dark-section" id="activities">
+    <h2>Beyond the Café</h2>
+
+    <p class="subtitle">
+        More than food. A place to play, create and connect.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>Creative Studio</h3>
+            <p>Explore pottery, painting and crafts.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎱</div>
+            <h3>Games Lounge</h3>
+            <p>Enjoy carrom, pool and friendly competition.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏓</div>
+            <h3>Table Tennis</h3>
+            <p>Challenge your friends to a match.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📸</div>
+            <h3>Photo Corner</h3>
+            <p>Capture moments worth remembering.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="order">
+    <h2>Your Shopping Basket</h2>
+
+    <p class="subtitle">
+        Pick your favourites and explore your order.
+    </p>
+
+    <div class="cart-box">
+        <h3>My Cart 🛍️</h3>
+
+        <div id="cart-items">
+            Your cart is empty.
+        </div>
+
+        <h3 id="total">Total: ₹0</h3>
+
+        <br>
+
+        <button class="button" onclick="clearCart()">
+            Clear Cart
+        </button>
+    </div>
+</section>
+
+<footer>
+    <h2>CREMBELLA.</h2>
+    <p>A Little Taste of Luxury.</p>
+    <p>Made with love ♡</p>
+    <p>© 2026 CREMBELLA. All rights reserved.</p>
+</footer>
+
+<script>
+    const cart = [];
+
+    function addToCart(name, price) {
+        cart.push({ name: name, price: price });
+        updateCart();
+    }
+
+    function updateCart() {
+        const items = document.getElementById("cart-items");
+        const total = document.getElementById("total");
+
+        items.innerHTML = "";
+
+        if (cart.length === 0) {
+            items.textContent = "Your cart is empty.";
+        } else {
+            cart.forEach(function(item, index) {
+                const row = document.createElement("p");
+
+                row.textContent =
+                    (index + 1) + ". " + item.name + " — ₹" + item.price;
+
+                items.appendChild(row);
+            });
+        }
+
+        const sum = cart.reduce(function(total, item) {
+            return total + item.price;
+        }, 0);
+
+        total.textContent = "Total: ₹" + sum;
+    }
+
+    function clearCart() {
+        cart.length = 0;
+        updateCart();
+    }
+</script>
+</body>
+</html>
+:::
